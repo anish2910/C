@@ -1,0 +1,25 @@
+gedit sat.c
+
+gcc -shared -o libsat.so sat.c
+
+file libsat.so
+
+gedit foo.c
+
+gcc -o foo foo.c
+
+gcc -o foo foo.c -L. -lsat
+
+./foo
+
+echo $LD_LIBRARY_PATH
+
+echo $LD_LIBRARY_PATH=.
+
+export LD_LIBRARY_PATH=.
+
+echo $LD_LIBRARY_PATH
+
+./foo
+
+ldd foo
